@@ -2,7 +2,7 @@
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import useModal from '../modules/useModal';
 import { Layout } from '../../Community/styles/NoticeModalStyle';
-import ModalButtonDiv from './usedInModal/ModalButtonDiv';
+import BottomButton from './usedInModal/BottomButton';
 import { Toast } from '../../components/common/Toast';
 import { LinkSvg } from '../../icon/LinkSvg';
 //import { KakaoSvg } from '../../../icon/KakaoSvg';
@@ -33,7 +33,7 @@ const ShareModal = () => {
       </div> */}
 
       <div className="border-2" />
-      <ModalButtonDiv cancelText={'닫기'} />
+      <BottomButton cancelText={'닫기'} />
     </Layout>
   );
 };

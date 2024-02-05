@@ -6,16 +6,16 @@ import { useNavigate } from 'react-router-dom';
 import { useSignup } from '../../modules/queries/useSignup';
 import { BackSvg } from '../../../icon/BackSvg';
 
-// 동적으로 불러오기
-const EmailForm = lazy(() => import('./EmailForm'));
-const PasswordForm = lazy(() => import('./PasswordForm'));
-const UserNameForm = lazy(() => import('./UserNameForm'));
-const PhoneNumberForm = lazy(() => import('./PhoneNumberForm'));
-const TeamTypeForm = lazy(() => import('./TeamTypeForm'));
-const RepresentForm = lazy(() => import('./RepresentForm'));
-const TeamNameForm = lazy(() => import('./TeamNameForm'));
-const RegionForm = lazy(() => import('./RegionForm'));
-const FieldForm = lazy(() => import('./FieldForm'));
+// 동적으로 불러오기 (컴포넌트 안에 선언시, input 입력때마다 화면이 깜박임.)
+const EmailForm = React.lazy(() => import('./EmailForm'));
+const PasswordForm = React.lazy(() => import('./PasswordForm'));
+const UserNameForm = React.lazy(() => import('./UserNameForm'));
+const PhoneNumberForm = React.lazy(() => import('./PhoneNumberForm'));
+const TeamTypeForm = React.lazy(() => import('./TeamTypeForm'));
+const RepresentForm = React.lazy(() => import('./RepresentForm'));
+const TeamNameForm = React.lazy(() => import('./TeamNameForm'));
+const RegionForm = React.lazy(() => import('./RegionForm'));
+const FieldForm = React.lazy(() => import('./FieldForm'));
 
 const RegisterForm = ({ type }) => {
   // 컴포넌트 배열에 넣기, 현재 컴포넌트 설정하기
@@ -95,4 +95,4 @@ const RegisterForm = ({ type }) => {
   );
 };
 
-export default React.memo(RegisterForm);
+export default RegisterForm;

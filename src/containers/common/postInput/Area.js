@@ -9,6 +9,7 @@ export const Area = ({ onChange, inputValue }) => {
         <div className="inputBox flex">
           <input
             className="area"
+            name="area"
             onChange={onChange}
             value={inputValue.area}
             placeholder="활동 장소를 입력하세요."

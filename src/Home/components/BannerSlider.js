@@ -2,10 +2,10 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import styled from 'styled-components';
-import { caption_02 } from '../../styles/fontStyle';
 import React from 'react';
 import client from '../../lib/api/client';
 import { useQuery } from '@tanstack/react-query';
+import { applyFontStyles } from '../../styles/fontStyle';
 
 const SliderWrapper = styled.div`
   box-shadow: var(--drop-shadow);
@@ -31,7 +31,7 @@ const SliderWrapper = styled.div`
       width: fit-content;
 
       & > div {
-        ${caption_02('#ffffff')}
+        ${applyFontStyles({ font: 'caption-02', color: '#ffffff' })}
       }
     }
     & > .slick-active {

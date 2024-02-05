@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import { changeBarStatus } from '../../Bar/modules/redux/bar';
 import { useDispatch } from 'react-redux';
-import { RegisterBox } from '../styles/Auth';
+import { RegisterBox } from '../../styles/Survey';
 
 const RegisterPage = () => {
   const dispatch = useDispatch();

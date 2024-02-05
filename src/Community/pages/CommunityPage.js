@@ -5,10 +5,10 @@ import CardList from '../../components/cardList/CardList';
 import PostList from '../../components/common/postList/PostList';
 import Category from '../containers/Category';
 import Filter from '../../components/common/filter/Filter';
-import { PostWriteButton } from '../../containers/common/PostWriteButton';
+import { GoToWriteButton } from '../../containers/common/GoToWriteButton';
 import { changeBarStatus } from '../../Bar/modules/redux/bar';
 import { initializeAll } from '../../modules/redux/filter';
-import { initializeAll as initializeAllPostWrite } from '../modules/redux/postWrite';
+import { initializeAll as initializeAllPostWrite } from '../../modules/redux/postWrite';
 import { Border, Contents } from '../styles/CommunityStyle';
 import BoardCardItem from '../../components/cardList/BoardCardItem';
 import { SearchInput } from '../../Search/components/SearchInput';
@@ -61,7 +61,7 @@ const Community = () => {
           </div>
         </Contents>
       </div>
-      <PostWriteButton />
+      <GoToWriteButton />
     </>
   );
 };

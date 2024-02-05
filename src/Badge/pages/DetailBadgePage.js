@@ -12,17 +12,19 @@ import { decodeJwtToken } from '../../Auth/modules/decodeJwtToken';
 import { RightArrowSvg } from '../../icon/Login/RightArrowSvg';
 import { SpaceBetween } from '../../Search/components/SearchCategory';
 
-const DetailBadgePage = () => {
+const DetailBadgePage = ({ isPreview }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(
-      changeBarStatus({
-        headerState: 'back',
-        text: '뱃지',
-        isShowBottom: true,
-      }),
-    );
+    if (!isPreview) {
+      dispatch(
+        changeBarStatus({
+          headerState: 'back',
+          text: '뱃지',
+          isShowBottom: true,
+        }),
+      );
+    }
   });
 
   const badge_info = {
@@ -82,9 +84,11 @@ const DetailBadgePage = () => {
             ))}
           </CardList>
         </ContentBox>
-        <div style={hideBadgeBox} onClick={onClick}>
-          이 뱃지 숨기기
-        </div>
+        {!isPreview && (
+          <div style={hideBadgeBox} onClick={onClick}>
+            이 뱃지 숨기기
+          </div>
+        )}
       </div>
     </>
   );

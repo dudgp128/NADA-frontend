@@ -1,4 +1,4 @@
-import { FooterWrapper } from '../../styles/Auth';
+import { FooterWrapper } from '../../../styles/Survey';
 
 const SocialLogin = () => {
   return (

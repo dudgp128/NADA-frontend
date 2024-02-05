@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { subtitle_03, body_01 } from '../../styles/fontStyle';
+import { AngleBracket } from '../../icon/AngleBracket';
 
 const DetailContent = styled.div`
   text-align: left;
@@ -17,25 +18,34 @@ const DetailContent = styled.div`
     width: 255px;
     ${body_01('#1A1A1A')};
   }
+  & .row {
+    ${body_01('#1A1A1A')};
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+    & > .gray {
+      ${body_01('#888888')};
+    }
+  }
 `;
 
 const ContentContainer = ({ info }) => {
-  const { startedAt, endedAt, groupName, area } = info;
+  const { startedAt, endedAt, institute, instituteURL, area } = info;
 
   const formatDate = (start, end) => {
     let startDate = new Date(start);
     let endDate = new Date(end);
-    return `${
+    return `${startDate.getFullYear()}년${
       startDate.getMonth() + 1
     }월 ${startDate.getDate()}일(${startDate.toLocaleDateString('ko-KR', {
       weekday: 'short',
-    })}) ~ ${
+    })}) ~ ${startDate.getFullYear()}년${
       endDate.getMonth() + 1
     }월 ${endDate.getDate()}일(${endDate.toLocaleDateString('ko-KR', {
       weekday: 'short',
     })})`;
   };
-
   return (
     <>
       <DetailContent>
@@ -45,7 +55,19 @@ const ContentContainer = ({ info }) => {
         </div>
         <div className="team">
           <div>기관</div>
-          <div>{groupName}</div>
+          <div className="row">
+            <div className="gray">주최</div>
+            <div>{institute}</div>
+            {instituteURL && (
+              <AngleBracket
+                Direction="right"
+                color="#888"
+                onClick={() => {
+                  window.open(instituteURL);
+                }}
+              />
+            )}
+          </div>
         </div>
         <div className="place">
           <div>장소</div>

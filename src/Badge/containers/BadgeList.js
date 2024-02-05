@@ -1,3 +1,4 @@
+// 뱃지 아이템을 리스트로 보여주는 컨테이너
 import { BadgeItem } from '../components/BadgeItem';
 import { applyFontStyles } from '../../styles/fontStyle';
 import { FixedSizeList as List } from 'react-window';

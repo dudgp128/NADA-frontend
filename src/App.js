@@ -8,6 +8,8 @@ import RegisterPage from './Auth/pages/RegisterPage';
 import LogInSelect from './Auth/pages/LoginSelect';
 
 import HomePage from './Manage/pages/HomePage.';
+import AlarmPage from './Bar/pages/AlarmPage';
+
 import ActivityDetailPage from './Manage/pages/ActivityDetailPage';
 import ActivityWritePage from './Manage/pages/ActivityWritePage.';
 import ActivityListPage from './Manage/pages/ActivityListPage.';
@@ -26,6 +28,7 @@ import SearchActivityPage from './Acitivity/pages/SearchActivityPage';
 import BadgePage from './Badge/pages/BadgePage';
 import DetailBadgePage from './Badge/pages/DetailBadgePage';
 import ActWritePage from './Acitivity/pages/ActWritePage';
+import BadgeRegisterPage from './Badge/pages/BadgeRegisterPage';
 
 const App = () => {
   return (
@@ -39,6 +42,7 @@ const App = () => {
 
         <Route path="/" element={<Home />} />
         <Route path="/calendar" element={<CalendarPage />} />
+        <Route path="/alarm" element={<AlarmPage />} />
 
         <Route path="/activity" element={<ActivityPage />} />
         <Route
@@ -63,6 +67,7 @@ const App = () => {
 
         <Route path="/badge" element={<BadgePage />} />
         <Route path="/badge/detail" element={<DetailBadgePage />} />
+        <Route path="/badge/BadgeRegister" element={<BadgeRegisterPage />} />
       </Routes>
       <StyledToastContainer limit={1} />
     </div>

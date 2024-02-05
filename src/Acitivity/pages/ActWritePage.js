@@ -8,15 +8,14 @@ import { Image } from '../../containers/common/postInput/Image';
 import { Content } from '../../containers/common/postInput/Content';
 import { Insitute } from '../../containers/common/postInput/Institute';
 import { Area } from '../../containers/common/postInput/Area';
-import { TextInput } from '../../Community/styles/PostWriteStyle';
+import { Period } from '../container/Period';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeBarStatus } from '../../Bar/modules/redux/bar';
 import {
   initializeAll,
   postWriteSelector,
-} from '../../Community/modules/redux/postWrite';
-import useModal from '../../Modal/modules/useModal';
+} from '../../modules/redux/postWrite';
 import usePostActivity from '../modules/queries/usePostActivity';
 import usePatchActivity from '../modules/queries/usePatchActivity';
 
@@ -30,20 +29,35 @@ const InputInfo = styled.div`
 
 const ActWritePage = () => {
   const dispatch = useDispatch();
-  const { openModal } = useModal();
-  const [inputValue, setInputValue] = useState({});
-  const [thumbnail, setThumbnail] = useState();
-  const [imgFiles, setImgFiles] = useState([]);
+  const { mutate: post } = usePostActivity();
+  const { mutate: update } = usePatchActivity();
+
   const isSubmit = useSelector(postWriteSelector('method', 'isSubmit'));
+  const postData = useSelector(({ postData }) => postData.postData).data;
   const postwrite = useSelector(({ postwrite }) => postwrite.postWriteSubmit);
-  const { mutate } = usePostActivity();
-  const updateMutate = usePatchActivity().mutate;
+
+  const [inputValue, setInputValue] = useState({
+    activityName: postData.activityName || '',
+    content: postData.content || '',
+    institute: postData.institute || '',
+    instituteURL: postData.instituteURL || '',
+    area: postData.area || '',
+  });
+
+  const [mainImageUrl, setMainImageUrl] = useState(
+    postData.mainImageUrl ? postData.mainImageUrl : '',
+  );
+  const [extraImageUrl, setExtraImageUrl] = useState(
+    postData.extraImageUrl ? postData.extraImageUrl : [],
+  );
+  const { startedAt, endedAt } = postwrite;
 
   useEffect(() => {
     dispatch(
       changeBarStatus({
         headerState: 'backPost',
         text: '활동 공고 등록',
+        position: 'activity',
         isShowBottom: false,
       }),
     );
@@ -57,68 +71,61 @@ const ActWritePage = () => {
     });
   };
 
-  const openCalendar = () => {
-    openModal({ type: 'CalendarModal' });
-  };
-
   const onSubmit = (e) => {
     e.preventDefault();
-    const { activityName, content, institute, intstituteURL, area } = e.target;
+    const { activityName, content, institute, instituteURL, area } = e.target;
+    const { _id, category, field, region } = postwrite;
     //const groupName = localStorage.getItem('groupName');
-    const { _id, category, field, region, startedAt, endedAt } = postwrite;
-    const imageUrl = imgFiles;
 
     const data = {
       activityName: activityName.value,
-      //groupName,
+      groupName: 'NADA',
       _id,
       category,
       field,
       region,
-      institute,
-      intstituteURL: intstituteURL.value,
+      institute: institute.value,
+      instituteURL: instituteURL.value,
       area: area.value,
       content: content.value,
-      imageUrl,
+      mainImageUrl,
+      extraImageUrl,
       startedAt,
       endedAt,
     };
 
     dispatch(initializeAll());
-    isSubmit ? mutate(data) : updateMutate(data);
+    isSubmit ? post(data) : update(data);
   };
 
   return (
-    <form onSubmit={onSubmit} className="pageContainer">
+    <form onSubmit={onSubmit} id="activity" className="pageContainer">
       <div>
-        <ThumbnailInput thumbnail={thumbnail} setThumbnail={setThumbnail} />
+        <ThumbnailInput
+          thumbnail={mainImageUrl}
+          setThumbnail={setMainImageUrl}
+        />
       </div>
       <div>
-        <Title onChange={onChange} inputValue={inputValue} />
+        <Title
+          name="activityName"
+          onChange={onChange}
+          inputValue={inputValue.activityName}
+        />
         <FilterBar type={'activity'} />
       </div>
-      {/* ▼ 접수기간 수정 필요 */}
       <>
         <InputInfo>
-          <TextInput>
-            <div className="duration box">
-              접수 기간
-              <div className="inputBox">
-                <input
-                  className="startedAt"
-                  placeholder="0000.00.00"
-                  onClick={openCalendar}
-                />
-                부터
-                <input className="endedAt" placeholder="0000.00.00" /> 까지
-              </div>
-            </div>
-          </TextInput>
+          <Period onChange={onChange} startedAt={startedAt} endedAt={endedAt} />
           <Insitute onChange={onChange} inputValue={inputValue} />
           <Area onChange={onChange} inputValue={inputValue} />
         </InputInfo>
       </>
-      <Image section="activity" imgFiles={imgFiles} setImgFiles={setImgFiles} />
+      <Image
+        section="activity"
+        imgFiles={extraImageUrl}
+        setImgFiles={setExtraImageUrl}
+      />
       <Content onChange={onChange} inputValue={inputValue} />
     </form>
   );

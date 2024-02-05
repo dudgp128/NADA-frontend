@@ -2,7 +2,7 @@
 import { Frame } from '../../../Community/styles/PostWriteStyle';
 import { MainCategoryButton } from '../../../Community/containers/postWrite/MainCategoryButton';
 import { OpenModalButton } from '../../../components/common/openModalButton';
-import { postWriteSelector } from '../../../Community/modules/redux/postWrite';
+import { postWriteSelector } from '../../../modules/redux/postWrite';
 import { useSelector } from 'react-redux';
 
 export const FilterBar = ({ type }) => {

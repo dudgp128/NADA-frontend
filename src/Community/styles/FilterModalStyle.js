@@ -20,9 +20,51 @@ export const Filter = styled.div`
   &:hover {
     cursor: pointer;
   }
+
+  & > .mainCategory {
+    ${applyFontStyles({
+      font: 'body-01',
+      color: 'var(--myspec-gray-scalegray-600)',
+    })};
+    background-color: var(--myspec-gray-scalegray-100);
+    border: none;
+    width: 47px;
+    height: 18px;
+    cursor: pointer;
+    pointer-events: none;
+    &::placeholder {
+      ${applyFontStyles({
+        font: 'body-01',
+        color: 'var(--myspec-gray-scalegray-600)',
+      })};
+    }
+    &:focus {
+      outline-width: 0;
+    }
+    &.isActive {
+      width: 24px;
+      background-color: var(--myspec-primaryblue-1);
+      color: var(--myspec-gray-scalewhite);
+    }
+  }
 `;
 
 export const TextWarpper = styled.div`
+  ${applyFontStyles({
+    font: 'body-01',
+    color: 'var(--myspec-gray-scalegray-600)',
+  })};
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+
+  &.isActive {
+    color: var(--myspec-gray-scalewhite);
+  }
+`;
+
+export const InputWarpper = styled.div`
   ${applyFontStyles({
     font: 'body-01',
     color: 'var(--myspec-gray-scalegray-600)',

@@ -4,8 +4,8 @@ import { createPortal } from 'react-dom';
 import { useSelector } from 'react-redux';
 import { modalSelector } from '../modules/redux/modal';
 // Lazy 로딩할 모달 컴포넌트들
-const MainCategoryModal = lazy(() =>
-  import('../../Community/components/PostWrite/MainCategoryModal'),
+const MainCategoryModal = lazy(
+  () => import('../../Community/components/PostWrite/MainCategoryModal'),
 );
 const ShareModal = lazy(() => import('./ShareModal'));
 const NoticeModal = lazy(() => import('./NoticeModal'));

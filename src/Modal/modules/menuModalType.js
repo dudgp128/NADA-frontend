@@ -2,22 +2,23 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import { Toast } from './Toast';
-import PrintCenteredText from '../../Modal/components/usedInModal/PrintCenteredText';
-import useModal from '../../Modal/modules/useModal';
+import { Toast } from '../../components/common/Toast';
+import PrintCenteredText from '../components/usedInModal/PrintCenteredText';
+import useModal from './useModal';
 import useSetButtonActive from '../../modules/common/SetButtonActive';
-import { PostDetailSelector } from '../../Community/modules/redux/postDetail';
-import { changeCommentField } from '../../Community/modules/redux/postDetail';
+import {
+  changeField,
+  commentSelector,
+} from '../../Community/modules/redux/comment';
 
 export const MenuTypeConfig = (content) => {
-  const { openModal } = useModal();
-  const dispatch = useDispatch();
-  const modal = useSelector(({ modal }) => modal);
-  const commentContent = useSelector(PostDetailSelector('Comment', 'content'));
-  const { contentType, position } = modal;
+  const { openModal, closeModal } = useModal();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const setButtonActive = useSetButtonActive();
-  const { closeModal } = useModal();
+  const modal = useSelector(({ modal }) => modal);
+  const { contentType, position } = modal;
+  const commentContent = useSelector(commentSelector('content'));
 
   const toReport = () => {
     openModal({
@@ -50,14 +51,18 @@ export const MenuTypeConfig = (content) => {
   };
 
   const toUpdate = () => {
+    if (position === 'activity') {
+      setButtonActive();
+      navigate('/activity/ActWrite');
+    }
     if (position === 'post') {
       setButtonActive();
       navigate('/community/PostWrite');
     }
     if (position === 'comment' || position === 'reply') {
-      dispatch(changeCommentField({ form: 'position', value: position }));
-      dispatch(changeCommentField({ form: 'isUpdating', value: true }));
-      dispatch(changeCommentField({ form: 'isReplying', value: false }));
+      dispatch(changeField({ form: 'position', value: position }));
+      dispatch(changeField({ form: 'isUpdating', value: true }));
+      dispatch(changeField({ form: 'isReplying', value: false }));
     }
     closeModal();
   };

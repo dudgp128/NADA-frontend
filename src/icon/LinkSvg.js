@@ -1,4 +1,4 @@
-export const LinkSvg = ({ size }) => {
+export const LinkSvg = ({ size, isActive = '' }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -8,7 +8,7 @@ export const LinkSvg = ({ size }) => {
       viewBox="0 0 18 18"
     >
       <path
-        stroke="#888"
+        stroke={`${isActive ? `#1363ff` : '#888'} `}
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="2"

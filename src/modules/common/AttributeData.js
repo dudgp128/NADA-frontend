@@ -51,15 +51,20 @@ export const categoryData = [
   { id: 9, text: '아르바이트' },
 ];
 
-export const selectConfig = ({ content, mainCategory }) => {
+export const selectConfig = ({
+  content,
+  mainCategory,
+  position = 'community',
+}) => {
   const Config = {
     region: regionData,
     field: fieldData,
     category: categoryData,
   };
 
-  if (content === 'category' && mainCategory === '모집') {
-    return Config[content].slice(0, 6);
+  if (content === 'category') {
+    if (position === 'activity') return Config[content].slice(0, 8);
+    if (mainCategory === '모집') return Config[content].slice(0, 6);
   }
   return Config[content];
 };

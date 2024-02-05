@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { produce } from 'immer';
 import { useSelector } from 'react-redux';
 import { authSelector } from '../../modules/redux/auth';
-import { LoginBtn, InputBox } from '../../styles/Auth';
+import { LoginBtn, InputBox } from '../../../styles/Survey';
 import CheckList from '../../components/CheckList/CheckList';
 import Title from '../../components/Title';
 const PasswordForm = ({ dispatchField, onSubmit, order, type }) => {

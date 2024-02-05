@@ -4,7 +4,7 @@ import { ContentStyle } from '../../../Community/styles/PostWriteStyle';
 export const Content = ({ onChange, inputValue }) => {
   return (
     <ContentStyle>
-      <input
+      <textarea
         className="text"
         name="content"
         onChange={onChange}

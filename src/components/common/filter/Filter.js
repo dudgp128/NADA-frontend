@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { filterSelector } from '../../../modules/redux/filter';
 import { FilterItems } from './FilterItems';
 
-const Filter = () => {
+const Filter = ({ position }) => {
   //특정 필터버튼이 활성화 상태라면 해당 필터에 따른 내용을 FilterItems를 통해 출력
   const isOpen = useSelector(filterSelector('buttonSelect', 'filter'));
 
@@ -16,7 +16,7 @@ const Filter = () => {
         <DropDown content="field" text="분야" />
         <DropDown content="category" text="종류" />
       </Filterlist>
-      {isOpen && <FilterItems text={isOpen} />}
+      {isOpen && <FilterItems text={isOpen} position={position} />}
     </>
   );
 };

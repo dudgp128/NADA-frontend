@@ -1,3 +1,4 @@
+// 뱃지를 보여주는 아이템 [shape, type, title, team, role]
 import styled from 'styled-components';
 import { body_01, caption_02, subtitle_01 } from '../../styles/fontStyle';
 

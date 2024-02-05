@@ -30,7 +30,7 @@ const CalendarPage = () => {
 
   const [dateSet, setDateSet] = useState({ start: '', end: '' });
 
-  const { data: events } = useGetInterested(dateSet);
+  const { data: events, isError } = useGetInterested(dateSet);
 
   // 주어진 날짜를 기준으로 이벤트를 필터링
   const filterEvent = useCallback(
@@ -85,7 +85,7 @@ const CalendarPage = () => {
             return info.isToday ? <TodayBox text={dayNumber} /> : dayNumber;
           }}
           fixedWeekCount={false}
-          events={events}
+          events={isError ? null : events}
           eventContent={(info) => <EventBox text={info.event.title} />}
           dateClick={(info) => openHandler(info)}
           datesSet={(dateInfo) => {

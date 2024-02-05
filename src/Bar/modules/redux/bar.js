@@ -9,6 +9,7 @@ const initialState = {
   headerStatus: {
     headerState: '',
     text: '',
+    position: '',
   },
   bottomStatus: {
     isShowBottom: Boolean(),
@@ -28,10 +29,11 @@ const barSlice = createSlice({
     //한번에 상단, 하단 상태를 설정하기 위한 함수
     changeBarStatus: (
       state,
-      { payload: { headerState, text, isShowBottom } },
+      { payload: { headerState, text, position = '', isShowBottom } },
     ) => {
       state.headerStatus.headerState = headerState;
       state.headerStatus.text = text;
+      state.headerStatus.position = position;
       state.bottomStatus.isShowBottom = isShowBottom;
     },
     initializeForm: (state, { payload: form, key }) => {

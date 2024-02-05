@@ -1,3 +1,4 @@
+// ['연도별', '종류별'] 정렬
 import { applyFontStyles } from '../../styles/fontStyle';
 
 export const AlignBox = ({ text, onClick }) => {

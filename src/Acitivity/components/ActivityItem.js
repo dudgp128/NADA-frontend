@@ -69,7 +69,7 @@ const ActivityItem = ({ cards, style }) => {
         key={card.idx}
         to={`/activity/DetailActivity/${card._id}`}
       >
-        <ImgContainer $imgsrc={card.imageUrl}>
+        <ImgContainer $imgsrc={card.mainImageUrl}>
           <Dday
             className={
               transNumber(card.Dday) >= -14 && transNumber(card.Dday) <= 0

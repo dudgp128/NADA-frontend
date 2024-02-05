@@ -1,7 +1,7 @@
 /** getElapsedTime update date의 경과시간을 계산해주는 모듈  */
 
-const getElapsedTime = ({ updatedAt }) => {
-  const milliSeconds = new Date() - new Date(updatedAt);
+const getElapsedTime = ({ registeredAt }) => {
+  const milliSeconds = new Date() - new Date(registeredAt);
   const seconds = milliSeconds / 1000;
 
   if (seconds < 60) return `방금 전`;

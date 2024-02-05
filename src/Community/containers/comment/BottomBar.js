@@ -4,24 +4,19 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Bar } from '../../styles/CommentBarStyle';
 import usePostComment from '../../modules/queries/usePostComment';
 import usePatchComment from '../../modules/queries/usePatchComment';
-import getBasicUrl from '../../../modules/common/getBasicUrl';
+import getDataForApi from '../../../modules/common/getDataForApi';
 import NoticeBar from './NoticeBar';
 import { InputBar } from '../../styles/CommentBarStyle';
 import { ArrowSvg } from '../../../icon/ArrowSvg';
-import { initializeForm } from '../../modules/redux/postDetail';
+import { initializeForm } from '../../modules/redux/comment';
 
 export const BottomBar = () => {
   const dispatch = useDispatch();
   const [inputValue, setInputValue] = useState();
-  const { mutate } = usePostComment();
-  const update = usePatchComment().mutate;
-  const PostDetail = useSelector(({ postdetail }) => postdetail);
-  const position = PostDetail.Comment.position;
-  const { url, idData } = getBasicUrl(position, PostDetail);
-  const content = PostDetail.Comment.content;
-  const isReplying = PostDetail.Comment.isReplying;
-  const isUpdating = PostDetail.Comment.isUpdating;
-  const userName = PostDetail.Comment.userName;
+  const { mutate: post } = usePostComment();
+  const { mutate: update } = usePatchComment();
+  const comment = useSelector(({ comment }) => comment.comment);
+  const { position, content, isReplying, isUpdating, userName } = comment;
   const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
@@ -37,13 +32,18 @@ export const BottomBar = () => {
   }, [isUpdating]);
 
   const sendComment = () => {
+    const { url, idData } = getDataForApi({
+      position: position,
+      comment: comment,
+    });
+
     if (isUpdating) {
       update({ url, _id: idData, content: inputValue });
     } else {
-      mutate({ url, content: inputValue });
+      post({ url, content: inputValue });
     }
 
-    dispatch(initializeForm({ form: 'Comment' }));
+    dispatch(initializeForm());
     setInputValue('');
   };
 

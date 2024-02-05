@@ -57,8 +57,10 @@ export const SearchInput = ({ onSubmit }) => {
 
   const dispatch = useDispatch();
 
+  // redux에서 검색어 추출하기
   const { text } = useSelector(searchSelector);
 
+  // 입력에 따라, redux > search > text 값 변경해주기
   const onChange = (e) => {
     dispatch(changeField({ key: 'text', value: e.target.value }));
   };

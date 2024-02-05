@@ -1,4 +1,4 @@
-/** postWrite 게시글 작성 페이지와 관련된 정보를 관리하는 리덕스 */
+/** postWrite 게시글 작성 페이지 중 모달과 관련된 데이터를 관리하는 리덕스 */
 import { createSlice } from '@reduxjs/toolkit';
 import { createSelector } from 'reselect';
 
@@ -16,7 +16,7 @@ const initialState = {
   },
   postWriteSelect: {
     // 사용자가 선택한 버튼에 대한 정보를 관리
-    mainCategory: '카테고리',
+    mainCategory: '',
     region: ['전국'],
     field: ['전체'],
     category: '전체',
@@ -24,7 +24,7 @@ const initialState = {
   postWriteSubmit: {
     //최종적으로 제출될 정보를 관리
     _id: '',
-    mainCategory: '카테고리',
+    mainCategory: '',
     region: ['전국'],
     field: ['전체'],
     category: '전체',
@@ -46,6 +46,8 @@ const postWriteSlice = createSlice({
       state.postWriteSubmit.region = value.region;
       state.postWriteSubmit.field = value.field;
       state.postWriteSubmit.category = value.category;
+      state.postWriteSubmit.startedAt = value.startedAt;
+      state.postWriteSubmit.endedAt = value.endedAt;
     },
     addField: (state, { payload: { form, key, value } }) => {
       state[form][key].push(value);

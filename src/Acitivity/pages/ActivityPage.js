@@ -11,6 +11,7 @@ import { initialized } from '../../Search/modules/redux/search';
 import { useActivityList } from '../modules/queries/useGetActivity';
 import '../../styles/PageCommon.scss';
 import AcitivityList from '../container/AcitivityList';
+import { GoToWriteButton } from '../../containers/common/GoToWriteButton';
 
 const ActivityPage = () => {
   const dispatch = useDispatch();
@@ -52,21 +53,24 @@ const ActivityPage = () => {
   };
 
   return (
-    <div className="pageContainer">
-      <SearchInput onSubmit={onSubmit} />
-      {recent && (
-        <CardList title={'최근 본 활동'} title_font={'subtitle-01'}>
-          <RecentActivityItem cards={recent.reverse()} />
-        </CardList>
-      )}
-      <div style={{ padding: '16px' }}>
-        <div>
-          <Filter />
-          <AlignBox text={'최신 순'} />
+    <>
+      <div className="pageContainer">
+        <SearchInput onSubmit={onSubmit} />
+        {recent && (
+          <CardList title={'최근 본 활동'} title_font={'subtitle-01'}>
+            <RecentActivityItem cards={recent.reverse()} />
+          </CardList>
+        )}
+        <div style={{ padding: '16px' }}>
+          <div>
+            <Filter position="activity" />
+            <AlignBox text={'최신 순'} />
+          </div>
+          <AcitivityList activities={activities} isError={isError} />
         </div>
-        <AcitivityList activities={activities} isError={isError} />
       </div>
-    </div>
+      <GoToWriteButton isActivity={true} />
+    </>
   );
 };
 

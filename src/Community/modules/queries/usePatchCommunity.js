@@ -18,6 +18,7 @@ const usePatchCommunity = () => {
       regions,
       title,
       content,
+      imageUrl,
     }) =>
       client.patch(`/community/post`, {
         _id: _id,
@@ -29,6 +30,7 @@ const usePatchCommunity = () => {
         region: regions,
         title: title,
         content: content,
+        imageUrl: imageUrl,
       }),
     onSuccess: (data) => {
       console.log('게시물이 수정되었습니다.', data);

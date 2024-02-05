@@ -1,7 +1,7 @@
 /** MenuModal 메뉴 클릭 시, 여러가지 행동 리스트가 나오는 모달 */
 import { useSelector } from 'react-redux';
-import ModalButtonDiv from './usedInModal/ModalButtonDiv';
-import { MenuTypeConfig } from '../../components/common/menuModalType';
+import BottomButton from './usedInModal/BottomButton';
+import { MenuTypeConfig } from '../modules/menuModalType';
 import { List, Border, Layout } from '../../Community/styles/BarModalStyle';
 
 export const MenuModal = () => {
@@ -16,7 +16,7 @@ export const MenuModal = () => {
         })}
       </div>
       <div style={Border} />
-      <ModalButtonDiv cancelText={'닫기'} />
+      <BottomButton cancelText={'닫기'} />
     </div>
   );
 };

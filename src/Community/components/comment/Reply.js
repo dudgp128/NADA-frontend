@@ -1,17 +1,16 @@
 /** Reply 답장 컴포넌트  */
 import { useDispatch } from 'react-redux';
-import { changeCommentField } from '../../modules/redux/postDetail';
+import { changeField } from '../../modules/redux/comment';
 import { ReplyStyle } from '../../styles/CommentStyle';
 
 export const Reply = ({ comment }) => {
   const dispatch = useDispatch();
-
   const sendComment = () => {
-    dispatch(changeCommentField({ form: 'position', value: 'reply' }));
-    dispatch(changeCommentField({ form: '_id', value: comment._id }));
-    dispatch(changeCommentField({ form: 'userName', value: comment.userName }));
-    dispatch(changeCommentField({ form: 'isReplying', value: true }));
-    dispatch(changeCommentField({ form: 'isUpdating', value: false }));
+    dispatch(changeField({ form: 'position', value: 'reply' }));
+    dispatch(changeField({ form: 'comment_id', value: comment._id }));
+    dispatch(changeField({ form: 'userName', value: comment.userName }));
+    dispatch(changeField({ form: 'isReplying', value: true }));
+    dispatch(changeField({ form: 'isUpdating', value: false }));
   };
 
   return (

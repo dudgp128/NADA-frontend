@@ -12,14 +12,20 @@ export const TitleStyle = styled.div`
   position: relative;
 
   & > .div {
-    ${applyFontStyles({
-      font: 'title-02',
-      color: 'var(--myspec-gray-scalegray-600)',
-    })};
     margin-top: -1px;
     position: relative;
     width: 345px;
     border: none;
+    ${applyFontStyles({
+      font: 'title-02',
+      color: 'var(--myspec-gray-scalegray-900)',
+    })};
+    &::placeholder {
+      ${applyFontStyles({
+        font: 'title-02',
+        color: 'var(--myspec-gray-scalegray-400)',
+      })};
+    }
   }
   & > .div:focus {
     outline: none;
@@ -39,11 +45,16 @@ export const Frame = styled.div`
 
 const inputStyles = css`
   width: 100%;
+  height: 30px;
   box-sizing: border-box;
   border: none;
   padding: 6px 8px;
   border-radius: 6px;
   background: var(--myspec-gray-scalegray-100);
+  ${applyFontStyles({
+    font: 'caption-02',
+    color: 'var(--myspec-gray-scalegray-900)',
+  })};
   &::placeholder {
     ${applyFontStyles({
       font: 'caption-02',
@@ -80,6 +91,14 @@ export const TextInput = styled.div`
         flex-direction: column;
       }
 
+      .date {
+        ${applyFontStyles({
+          font: 'caption-02',
+          color: 'var(--myspec-gray-scalegray-900)',
+        })};
+        cursor: pointer;
+      }
+
       input {
         ${inputStyles}
       }
@@ -94,8 +113,16 @@ export const TextInput = styled.div`
           padding: 0;
           background-color: inherit;
         }
+
+        & > .isActive {
+          ${applyFontStyles({
+            font: 'caption-02',
+            color: 'var(--myspec-primaryblue-1)',
+          })};
+        }
       }
     }
+  }
 `;
 
 export const ContentStyle = styled.div`
@@ -115,6 +142,8 @@ export const ContentStyle = styled.div`
     margin-top: -1px;
     position: relative;
     width: 345px;
+    height: 466px;
+    word-wrap: break-word;
     border: none;
 
     &::placeholder {
@@ -151,9 +180,17 @@ export const PreViewImg = styled.div`
     background-size: cover;
     background-image: ${({ imgurl }) => `url('${imgurl}')`};
   }
+  & > .gradient {
+    position: absolute;
+    width: 72px;
+    height: 72px;
+    top: 0px;
+    border-radius: 10px;
+    background: linear-gradient(180deg, #000000a9 0%, transparent 100%);
+  }
   & > .xImg {
     position: absolute;
     left: 53px;
     top: 2px;
-  }
+  }gradient
 `;

@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { authSelector } from '../../modules/redux/auth';
-import { LoginBtn, InputBox } from '../../styles/Auth';
+import { LoginBtn, InputBox } from '../../../styles/Survey';
 import Title from '../../components/Title';
 
 const TeamNameForm = ({ dispatchField, onSubmit, order, type }) => {

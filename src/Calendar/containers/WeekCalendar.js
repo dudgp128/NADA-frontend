@@ -10,7 +10,7 @@ import { useGetInterested } from '../../Acitivity/modules/queries/useGetInterest
 const WeekCalendar = () => {
   // 서버에서 가져온 데이터
   const [dateSet, setDateSet] = useState({ start: '', end: '' });
-  const { data: events } = useGetInterested(dateSet);
+  const { data: events, isError } = useGetInterested(dateSet);
 
   return (
     <>
@@ -28,8 +28,7 @@ const WeekCalendar = () => {
             return info.isToday ? <TodayBox text={day} /> : day;
           }}
           eventContent={(info) => <EventBox text={info.event.title} />}
-          // dayGridWeek은 'end + 1'로 표시해야한다. (적용전)
-          events={events}
+          events={isError ? null : events}
           datesSet={(dateInfo) => {
             setDateSet((prevDateSet) => ({
               ...prevDateSet,

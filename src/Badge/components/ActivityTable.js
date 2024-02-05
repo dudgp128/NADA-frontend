@@ -1,3 +1,4 @@
+// 활동 이력을 보여주는 컴포넌트
 import React from 'react';
 
 export const ActivityTable = ({ info }) => {

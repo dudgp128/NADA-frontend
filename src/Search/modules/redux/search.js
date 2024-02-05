@@ -1,8 +1,8 @@
 import { createSlice, createSelector } from '@reduxjs/toolkit';
 
 const initialState = {
-  focus: '제목',
-  text: '',
+  focus: '제목', // [제목, 본문, 작성자]
+  text: '', // 검색어
 };
 
 const searchSlice = createSlice({

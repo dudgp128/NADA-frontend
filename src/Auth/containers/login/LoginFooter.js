@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { RightArrowSvg } from '../../../icon/Login/RightArrowSvg';
-import { FooterWrapper } from '../../styles/Auth';
+import { FooterWrapper } from '../../../styles/Survey';
 
 const LoginFooter = ({ type }) => {
   return (

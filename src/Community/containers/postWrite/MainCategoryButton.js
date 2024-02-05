@@ -2,8 +2,8 @@
 import { useSelector } from 'react-redux';
 import classNames from 'classnames';
 import useModal from '../../../Modal/modules/useModal';
-import { Filter, TextWarpper, Img } from '../../styles/FilterModalStyle';
-import { postWriteSelector } from '../../modules/redux/postWrite';
+import { Filter, Img } from '../../styles/FilterModalStyle';
+import { postWriteSelector } from '../../../modules/redux/postWrite';
 
 export const MainCategoryButton = () => {
   const text = useSelector(
@@ -20,9 +20,17 @@ export const MainCategoryButton = () => {
   };
 
   return (
-    <Filter className={classNames({ isActive })} onClick={onClick}>
-      <TextWarpper className={classNames({ isActive })}>{text}</TextWarpper>
-      <Img className={classNames({ isActive })} />
-    </Filter>
+    <>
+      <Filter className={classNames({ isActive })} onClick={onClick}>
+        <input
+          name="mainCategory"
+          className={classNames('mainCategory', { isActive })}
+          placeholder="카테고리"
+          defaultValue={text}
+          required
+        />
+        <Img className={classNames({ isActive })} />
+      </Filter>
+    </>
   );
 };

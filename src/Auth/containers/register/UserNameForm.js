@@ -4,7 +4,7 @@ import client from '../../../lib/api/client';
 import { authSelector } from '../../modules/redux/auth';
 import { produce } from 'immer';
 import CheckList from '../../components/CheckList/CheckList';
-import { LoginBtn, InputBox } from '../../styles/Auth';
+import { LoginBtn, InputBox } from '../../../styles/Survey';
 import Title from '../../components/Title';
 import Caution from '../../components/Caution';
 import useDebounce from '../../modules/useDebounce';

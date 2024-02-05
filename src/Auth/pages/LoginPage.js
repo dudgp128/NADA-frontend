@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import LoginForm from '../containers/login/LoginForm';
-import { LoginBox } from '../styles/Auth';
+import { LoginBox } from '../../styles/Survey';
 import { useLocation } from 'react-router-dom';
 import { changeBarStatus } from '../../Bar/modules/redux/bar';
 import { useDispatch } from 'react-redux';

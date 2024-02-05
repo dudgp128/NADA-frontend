@@ -3,7 +3,8 @@ import { PostContainer } from '../../../Community/styles/postItemStyle';
 import GetElapsedTime from '../../../modules/common/getElapsedTime';
 
 const PostItem = ({ card }) => {
-  const { title, field, category, region, content, updatedAt, imageUrl } = card;
+  const { title, field, category, region, content, registeredAt, imageUrl } =
+    card;
 
   const DetailText = ({ text, isLast }) => {
     return (
@@ -48,7 +49,7 @@ const PostItem = ({ card }) => {
           <div className="ellipse" />
           <div className="nowrap">
             <text className="text-2">
-              <GetElapsedTime updatedAt={updatedAt} />
+              <GetElapsedTime registeredAt={registeredAt} />
             </text>
           </div>
         </div>

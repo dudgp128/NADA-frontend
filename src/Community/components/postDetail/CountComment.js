@@ -1,15 +1,19 @@
 /** CountComment 게시물 답글의 총 갯수를 반환하는 컴포넌트  */
 import { useSelector } from 'react-redux';
-import { PostDetailSelector } from '../../modules/redux/postDetail';
+import { postDataSelector } from '../../../modules/redux/postData';
 
 const CountComment = () => {
-  const comments = useSelector(PostDetailSelector('PostDetail', 'comments'));
+  const data = useSelector(postDataSelector('data'));
 
-  const totalComments = comments.reduce(
-    (acc, comment) =>
-      acc + comment.replies.length + (comment.isDeleted ? 0 : 1),
-    0,
-  );
+  let totalComments = 0;
+
+  if (data && data.comments) {
+    totalComments = data.comments.reduce(
+      (acc, comment) =>
+        acc + comment.replies.length + (comment.isDeleted ? 0 : 1),
+      0,
+    );
+  }
 
   return totalComments;
 };

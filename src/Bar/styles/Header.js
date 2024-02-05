@@ -27,6 +27,9 @@ export const Overlap = styled.div`
     left: 325px;
     top: 50px;
     width: 32px;
+    padding-inline: 0px;
+    border-width: 0px;
+    background-color: white;
   }
 `;
 

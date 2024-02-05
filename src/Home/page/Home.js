@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import CardList from '../../components/cardList/CardList';
 import WeekCalendar from '../../Calendar/containers/WeekCalendar';
 import React, { Suspense } from 'react';
@@ -6,30 +6,22 @@ import { useDispatch } from 'react-redux';
 import { changeBarStatus } from '../../Bar/modules/redux/bar';
 import { useNavigate } from 'react-router-dom';
 import BoardCardItem from '../../components/cardList/BoardCardItem';
-import ActivityItem from '../../Acitivity/components/ActivityItem';
-import { useActivityList } from '../../Acitivity/modules/queries/useGetActivity';
+import { useRecommendActivities } from '../../Acitivity/modules/queries/useGetActivity';
 import '../../styles/PageCommon.scss';
+import { RecommendList } from '../components/RecommendList';
+import { useGetTopPost } from '../../Community/modules/queries/useGetCommunity';
 
 const Home = () => {
   const BannerSlider = React.lazy(() => import('../components/BannerSlider'));
 
   const dispatch = useDispatch();
-  const community_cards = [
-    { id: 1, title: '유용한 활동 사이트', category: '자유' },
-    { id: 2, title: '같이 공모전 나가실 분', category: '홍보' },
-    { id: 3, title: '팀원 모집합니다.', category: '홍보' },
-  ];
-
-  const [activities, setActivities] = useState([]);
 
   // 활동글 불러오기
-  const { data } = useActivityList();
+  const { data: activityData } = useRecommendActivities();
+  console.log(activityData);
 
-  useEffect(() => {
-    if (data) {
-      setActivities(data);
-    }
-  }, [data, activities]);
+  // 인기글 불러오기
+  const { data: postData } = useGetTopPost();
 
   useEffect(() => {
     dispatch(
@@ -61,11 +53,11 @@ const Home = () => {
         title={'지금 인기 있는 게시글이에요🔥'}
         title_font={'subtitle-01'}
       >
-        <BoardCardItem cards={community_cards} />
+        {postData && <BoardCardItem cards={postData} />}
       </CardList>
-      <CardList title={'추천 대외활동'} title_font={'subtitle-01'}>
-        <ActivityItem cards={activities} />
-      </CardList>
+      <div className="RecommendList">
+        {activityData && <RecommendList activities={activityData} />}
+      </div>
     </div>
   );
 };

@@ -1,3 +1,4 @@
+// 뱃지 설명 컴포넌트
 import React from 'react';
 import { applyFontStyles } from '../../styles/fontStyle';
 

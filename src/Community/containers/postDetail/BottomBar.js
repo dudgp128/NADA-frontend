@@ -3,15 +3,15 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Bar, MenuImg } from '../../styles/CommunityBarStyle';
 import useModal from '../../../Modal/modules/useModal';
-import { PostDetailSelector } from '../../modules/redux/postDetail';
+import { postDataSelector } from '../../../modules/redux/postData';
 import CountComment from '../../components/postDetail/CountComment';
 
 export const BottomBar = () => {
   const { openModal } = useModal();
   const navigate = useNavigate();
-  const id = useSelector(PostDetailSelector('PostDetail', '_id'));
-  const commentcount = CountComment();
+  const data = useSelector(postDataSelector('data'));
 
+  const commentcount = CountComment();
   const openMenu = () => {
     openModal({
       type: 'MenuModal',
@@ -22,7 +22,7 @@ export const BottomBar = () => {
   };
 
   const openComment = () => {
-    navigate(`/community/Comment/${id}`);
+    navigate(`/community/Comment/${data._id}`);
   };
 
   return (

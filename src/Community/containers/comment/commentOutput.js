@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { CommentBox } from '../../styles/CommentStyle';
-import { changeCommentField } from '../../modules/redux/postDetail';
+import { changeField } from '../../modules/redux/comment';
 import ReplyOutPut from './replyOutput';
 import useModal from '../../../Modal/modules/useModal';
 import { Profile } from '../../components/comment/Profile';
@@ -14,8 +14,8 @@ const CommentOutPut = ({ comment }) => {
 
   // 댓글 메뉴 열기
   const openMenu = () => {
-    dispatch(changeCommentField({ form: '_id', value: comment._id }));
-    dispatch(changeCommentField({ form: 'content', value: comment.content }));
+    dispatch(changeField({ form: 'comment_id', value: comment._id }));
+    dispatch(changeField({ form: 'content', value: comment.content }));
     openModal({
       type: 'MenuModal',
       contentType: '댓글',

@@ -9,13 +9,17 @@ export const useSignup = () => {
     password,
     phoneNumber,
     userName,
+    region,
+    interestField,
   }) => {
     return client.post('/user/signUp', {
       userType: 1,
-      email: email,
-      password: password,
-      userName: userName,
-      phoneNumber: phoneNumber,
+      email,
+      password,
+      userName,
+      phoneNumber,
+      region,
+      interestField,
     });
   };
 

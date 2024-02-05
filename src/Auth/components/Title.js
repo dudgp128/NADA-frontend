@@ -1,5 +1,5 @@
 import React from 'react';
-import { TitleBox } from '../styles/Auth';
+import { TitleBox } from '../../styles/Survey';
 
 const Title = ({ text }) => {
   return (

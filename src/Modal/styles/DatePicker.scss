@@ -77,12 +77,14 @@
   }
   //기간 선택 중 또는 후에 시작 날짜
   .react-datepicker__day--selecting-range-start,
-  .react-datepicker__day--range-start {
+  .react-datepicker__day--range-start:not(.react-datepicker__day--range-end) {
     border-radius: 20px 0px 0px 20px;
     background-color: var(--myspec-primaryblue-1);
   }
   //기간 선택 중 마우스 커서가 올라가있는 날짜
-  .react-datepicker__day--selecting-range-end {
+  .react-datepicker__day--selecting-range-end:not(
+      .react-datepicker__day--selected
+    ) {
     color: black;
     border-radius: 0px 20px 20px 0px;
     background-color: rgba(19, 99, 255, 0.1);

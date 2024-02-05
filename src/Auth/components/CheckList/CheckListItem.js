@@ -1,4 +1,4 @@
-import { ErrorMessage } from '../../styles/Auth';
+import { ErrorMessage } from '../../../styles/Survey';
 import { CheckSvg } from '../../../icon/Login/CheckSvg';
 
 const CheckListItem = ({ text, checked }) => {

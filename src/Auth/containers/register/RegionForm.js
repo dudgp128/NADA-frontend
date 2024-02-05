@@ -1,6 +1,6 @@
 // 회원가입 - 활동 지역을 입력받는 컨테이너
 import { authSelector } from '../../modules/redux/auth';
-import { TitleBox, Explain, LoginBtn } from '../../styles/Auth';
+import { TitleBox, Explain, LoginBtn } from '../../../styles/Survey';
 import { Item } from '../../../components/common/filter/FilterItems';
 import { useState } from 'react';
 import { regionData } from '../../../modules/common/AttributeData';

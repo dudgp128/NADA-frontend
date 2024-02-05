@@ -63,7 +63,7 @@ const Dday = styled.div`
 `;
 
 const Thumbnail = ({ info }) => {
-  const { _id, activityName, region, field, category, imageUrl, endedAt } =
+  const { _id, activityName, region, field, category, mainImageUrl, endedAt } =
     info;
 
   const TagContent = [region, field, category].flat();
@@ -78,7 +78,7 @@ const Thumbnail = ({ info }) => {
         <img
           className="thumbnail-image"
           alt="thumbnail"
-          src={imageUrl}
+          src={mainImageUrl}
           onError={(e) => {
             e.target.src = imgNull;
           }}

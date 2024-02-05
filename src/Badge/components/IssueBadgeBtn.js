@@ -1,3 +1,4 @@
+// '뱃지 발급하기' 버튼
 import styled from 'styled-components';
 import { AddOperator } from '../../icon/AddOperator';
 import { applyFontStyles } from '../../styles/fontStyle';
@@ -31,7 +32,7 @@ const ButtonWrapper = styled.div`
 const IssueBadgeBtn = () => {
   return (
     <ButtonWrapper>
-      <AddOperator />
+      <AddOperator color={'#2FEDAF'} />
       <div> 뱃지 발급하기 </div>
     </ButtonWrapper>
   );

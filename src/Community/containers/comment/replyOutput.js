@@ -1,7 +1,7 @@
 /**ReplyOutPut 답글을 출력하는 컴포넌트 */
 import { useDispatch } from 'react-redux';
 import useModal from '../../../Modal/modules/useModal';
-import { changeCommentField } from '../../modules/redux/postDetail';
+import { changeField } from '../../modules/redux/comment';
 import { ReplyBox } from '../../styles/CommentStyle';
 import { Profile } from '../../components/comment/Profile';
 import { Menu } from '../../components/comment/Menu';
@@ -12,9 +12,9 @@ const ReplyOutPut = ({ comment, reply }) => {
   const { openModal } = useModal();
 
   const openMenu = () => {
-    dispatch(changeCommentField({ form: '_id', value: comment._id }));
-    dispatch(changeCommentField({ form: 'reply_id', value: reply._id }));
-    dispatch(changeCommentField({ form: 'content', value: reply.content }));
+    dispatch(changeField({ form: 'comment_id', value: comment._id }));
+    dispatch(changeField({ form: 'reply_id', value: reply._id }));
+    dispatch(changeField({ form: 'content', value: reply.content }));
     openModal({
       type: 'MenuModal',
       contentType: '댓글',

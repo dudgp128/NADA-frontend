@@ -7,15 +7,14 @@ import { useSelector } from 'react-redux';
 import { filterSelector } from '../../../modules/redux/filter';
 import { selectConfig } from '../../../modules/common/AttributeData';
 
-export const FilterItems = ({ text }) => {
+export const FilterItems = ({ text, position }) => {
   const mainCategory = useSelector(
     filterSelector('buttonSelect', 'maincategory'),
   );
 
   const [contents, setContents] = useState([]);
-
   useEffect(() => {
-    setContents(selectConfig({ content: text, mainCategory }));
+    setContents(selectConfig({ content: text, mainCategory, position }));
   }, [mainCategory, text]);
 
   const output = () => {

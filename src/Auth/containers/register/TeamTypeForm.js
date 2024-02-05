@@ -1,7 +1,7 @@
 import React, { useCallback, useState, useEffect } from 'react';
 import TeamTypeList from '../../components/TeamType/TeamTypeList';
 import Title from '../../components/Title';
-import { LoginBtn } from '../../styles/Auth';
+import { LoginBtn } from '../../../styles/Survey';
 import { useSelector } from 'react-redux';
 import { authSelector } from '../../modules/redux/auth';
 

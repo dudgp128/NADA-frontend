@@ -1,4 +1,4 @@
-export const AddOperator = () => {
+export const AddOperator = ({ color }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -9,13 +9,13 @@ export const AddOperator = () => {
     >
       <path
         d="M6.5 1V12"
-        stroke="#2FEDAF"
+        stroke={color}
         stroke-linecap="round"
         stroke-linejoin="round"
       />
       <path
         d="M1 6.5H12"
-        stroke="#2FEDAF"
+        stroke={color}
         stroke-linecap="round"
         stroke-linejoin="round"
       />

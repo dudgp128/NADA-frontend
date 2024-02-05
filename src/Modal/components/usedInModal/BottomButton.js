@@ -1,26 +1,24 @@
-/** ModalButtonDiv 모달 가장 아래에 위치한 'divide' 버튼 컴포넌트 */
+/** BottomButton 모달 가장 아래에 위치한 'divide' 버튼 컴포넌트 */
 import useModal from '../../modules/useModal';
 import styled from 'styled-components';
 import classNames from 'classnames';
 import { applyFontStyles } from '../../../styles/fontStyle';
 
-export const ModalButtonDiv = ({ cancelText, actText, act, isRed }) => {
+export const BottomButton = ({
+  cancelText,
+  cancelAct,
+  actText,
+  act,
+  isRed,
+}) => {
   const { closeModal } = useModal();
 
-  const ButtonList = {
-    alignItems: 'flex-start',
-    display: 'flex',
-    flex: '0 0 auto',
-    gap: '8px',
-    height: '48px',
-    position: 'relative',
-    width: '264px',
-    textAlign: 'center',
-  };
-
   return (
-    <div style={ButtonList}>
-      <Cancel onClick={() => closeModal()} $isColor={Boolean(cancelText)}>
+    <ButtonList>
+      <Cancel
+        onClick={() => (cancelAct ? cancelAct() : closeModal())}
+        $isColor={Boolean(cancelText)}
+      >
         <div className="text">{cancelText || '취소'}</div>
       </Cancel>
       {actText && (
@@ -28,13 +26,23 @@ export const ModalButtonDiv = ({ cancelText, actText, act, isRed }) => {
           <div className="text">{actText}</div>
         </Act>
       )}
-    </div>
+    </ButtonList>
   );
 };
 
-export default ModalButtonDiv;
+export default BottomButton;
 
-const Cancel = styled.div`
+export const ButtonList = styled.div`
+  align-items: flex-start;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 8px;
+  position: relative;
+  width: 264px;
+  text-align: center;
+`;
+
+export const Cancel = styled.div`
   background: ${(props) =>
     props.$isColor
       ? 'var(--myspec-primaryblue-1)'
@@ -56,7 +64,7 @@ const Cancel = styled.div`
     }};
   }
 `;
-const Act = styled.div`
+export const Act = styled.div`
   border-radius: 10px;
   box-sizing: border-box;
   position: relative;
@@ -72,5 +80,9 @@ const Act = styled.div`
       font: 'subtitle_01',
       color: 'var(--myspec-gray-scalegray-100)',
     })}
+  }
+
+  &.disabled {
+    opacity: 0.3;
   }
 `;

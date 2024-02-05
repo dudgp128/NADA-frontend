@@ -7,6 +7,7 @@ import React from 'react';
 import { BadgeList } from '../containers/BadgeList';
 import { decodeJwtToken } from '../../Auth/modules/decodeJwtToken';
 import IssueBadgeBtn from '../components/IssueBadgeBtn';
+import { useNavigate } from 'react-router-dom';
 
 const BadgePage = () => {
   const dispatch = useDispatch();
@@ -19,7 +20,7 @@ const BadgePage = () => {
         isShowBottom: true,
       }),
     );
-  });
+  }, []);
 
   const [title, setTitle] = useState([]);
   const [align, setAlign] = useState('연도별');
@@ -51,6 +52,8 @@ const BadgePage = () => {
     ];
     setCategory(badgeTypes);
   }, [align]);
+
+  const navigate = useNavigate();
 
   const badge_info = [
     {
@@ -103,7 +106,15 @@ const BadgePage = () => {
           )}
         />
       ))}
-      {userType === 2 && <IssueBadgeBtn />}
+      {userType === 2 && (
+        <div
+          onClick={() => {
+            navigate('/badge/write');
+          }}
+        >
+          <IssueBadgeBtn />
+        </div>
+      )}
     </div>
   );
 };

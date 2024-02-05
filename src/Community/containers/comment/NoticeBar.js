@@ -1,14 +1,14 @@
 /** NoticeBar 수정 중임을 알려주는 알림창 */
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
-import { initializeForm } from '../../modules/redux/postDetail';
+import { initializeForm } from '../../modules/redux/comment';
 import { applyFontStyles } from '../../../styles/fontStyle';
 
 const NoticeBar = ({ name, isReply }) => {
   const dispatch = useDispatch();
 
   const onClick = () => {
-    dispatch(initializeForm({ form: 'Comment' }));
+    dispatch(initializeForm());
   };
 
   const IsReplying = () => {

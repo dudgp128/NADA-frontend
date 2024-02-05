@@ -2,7 +2,10 @@
 import { useState } from 'react';
 import useModal from '../../../Modal/modules/useModal';
 import { useDispatch, useSelector } from 'react-redux';
-import { postWriteSelector, changeField } from '../../modules/redux/postWrite';
+import {
+  postWriteSelector,
+  changeField,
+} from '../../../modules/redux/postWrite';
 import {
   ListMain,
   Border,
@@ -10,7 +13,7 @@ import {
   TextWrapper,
   Img,
 } from '../../../Modal/styles/ModalStyle';
-import ModalButtonDiv from '../../../Modal/components/usedInModal/ModalButtonDiv';
+import BottomButton from '../../../Modal/components/usedInModal/BottomButton';
 
 const MainCategoryModal = () => {
   const { closeModal } = useModal();
@@ -75,7 +78,7 @@ const MainCategoryModal = () => {
         {output('자유 게시판', '자유')}
       </div>
       <div style={Border} />
-      {ModalButtonDiv({
+      {BottomButton({
         cancel: cancels,
         actText: '확인',
         act: setStatus,

@@ -3,7 +3,10 @@ import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import usePostCommunity from '../modules/queries/usePostCommunity';
 import usePatchCommunity from '../modules/queries/usePatchCommunity';
-import { initializeAll, postWriteSelector } from '../modules/redux/postWrite';
+import {
+  initializeAll,
+  postWriteSelector,
+} from '../../modules/redux/postWrite';
 import { changeBarStatus } from '../../Bar/modules/redux/bar';
 import { Title } from '../../containers/common/postInput/Title';
 import { FilterBar } from '../../containers/common/postInput/FilterBar';
@@ -18,19 +21,22 @@ const PostWrite = () => {
   const dispatch = useDispatch();
 
   const isSubmit = useSelector(postWriteSelector('method', 'isSubmit'));
-  const PostDetail = useSelector(({ postdetail }) => postdetail.PostDetail);
+  const postData = useSelector(({ postData }) => postData.postData).data;
   const postwrite = useSelector(({ postwrite }) => postwrite.postWriteSubmit);
   const [inputValue, setInputValue] = useState({
-    title: PostDetail.title,
-    content: PostDetail.content,
+    title: postData.title,
+    content: postData.content,
   });
-  const [imgFiles, setImgFiles] = useState([]);
+  const [imgFiles, setImgFiles] = useState(
+    postData.imageUrl ? postData.imageUrl : [],
+  );
 
   useEffect(() => {
     dispatch(
       changeBarStatus({
         headerState: 'backPost',
         text: '글쓰기',
+        position: 'community',
         isShowBottom: false,
       }),
     );
@@ -38,6 +44,7 @@ const PostWrite = () => {
 
   const onChange = (event) => {
     const { value, name } = event.target;
+
     setInputValue({
       ...inputValue,
       [name]: value,
@@ -49,12 +56,11 @@ const PostWrite = () => {
 
     const userEmail = localStorage.getItem('email');
     const userName = 'maintest01';
-    const { _id, mainCategory, category, field, region } = postwrite;
-
+    const { _id, category, field, region } = postwrite;
+    const mainCategory = e.target.mainCategory.value;
     const title = e.target.title.value;
     const content = e.target.content.value;
     const imageUrl = imgFiles;
-
     dispatch(initializeAll());
 
     const formData = {
@@ -79,10 +85,11 @@ const PostWrite = () => {
   return (
     <form
       className="pageContainer"
+      id="community"
       onSubmit={onSubmit}
       encType="multipart/form-data"
     >
-      <Title onChange={onChange} inputValue={inputValue} />
+      <Title name="title" onChange={onChange} inputValue={inputValue.title} />
       <div>
         <FilterBar type={'community'} />
         <Content onChange={onChange} inputValue={inputValue} />
@@ -92,8 +99,6 @@ const PostWrite = () => {
         section="community"
         setImgFiles={setImgFiles}
       />
-
-      <button>테스트 제출 버튼</button>
     </form>
   );
 };
