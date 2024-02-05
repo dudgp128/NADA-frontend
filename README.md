@@ -1,15 +1,11 @@
 # nada-frontend
 ![슬라이드1](https://github.com/dudgp128/nada-frontend/assets/59547170/0bc98c37-f7b2-494c-aa6f-ee104f216f2b)
-![image](https://github.com/dudgp128/nada-frontend/assets/59547170/01d8f3bc-892a-4cb9-ba67-5c07db13703b)
+![8226e112fb3f440c](https://github.com/dudgp128/nada-frontend/assets/59547170/1452a5dd-9793-46ad-9679-b8b4ac2a7e42)
 ![image](https://github.com/dudgp128/nada-frontend/assets/59547170/4a2e351f-159d-4e95-8aad-173f48236199)
-![슬라이드3](https://github.com/dudgp128/nada-frontend/assets/59547170/51031b85-d915-442e-9e14-1179e6aa717a)
-![슬라이드4](https://github.com/dudgp128/nada-frontend/assets/59547170/e5b85417-0679-4474-98f3-61015cf148f5)
-![슬라이드5](https://github.com/dudgp128/nada-frontend/assets/59547170/9561bb2f-509b-4659-a45b-5d1b6aec8fd8)
-![슬라이드6](https://github.com/dudgp128/nada-frontend/assets/59547170/123d6272-1fe8-44d0-9ff9-0509c5dda84c)
-![슬라이드7](https://github.com/dudgp128/nada-frontend/assets/59547170/26e04e05-7205-4030-8fca-570c6adbec72)
-
-
-
-ㅁ
-
-
+![슬라이드8](https://github.com/dudgp128/nada-frontend/assets/59547170/62c33935-5235-46fe-82ee-b185a37e53a7)
+![슬라이드9](https://github.com/dudgp128/nada-frontend/assets/59547170/c9c241af-e21d-4f3d-848b-3b8ff8ca3499)
+![슬라이드10](https://github.com/dudgp128/nada-frontend/assets/59547170/0f242413-cbbe-47a5-bb85-5eb99de055c3)
+![슬라이드11](https://github.com/dudgp128/nada-frontend/assets/59547170/3601c9da-5357-4455-b8ed-cf1eba7c0af3)
+![슬라이드12](https://github.com/dudgp128/nada-frontend/assets/59547170/706a9c88-d71b-4cae-9cc3-7488dc928339)
+![슬라이드13](https://github.com/dudgp128/nada-frontend/assets/59547170/25ffa19f-03c5-49e3-ae80-dd5e64d6d2ea)
+![슬라이드14](https://github.com/dudgp128/nada-frontend/assets/59547170/fa250cb5-558a-41f0-90fe-e58449ebf62d)
