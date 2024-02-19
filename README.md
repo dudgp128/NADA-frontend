@@ -1,11 +1,11 @@
 # nada-frontend
-![슬라이드1](https://github.com/dudgp128/nada-frontend/assets/59547170/0bc98c37-f7b2-494c-aa6f-ee104f216f2b)
+![최종0218 조영혜_포트폴리오](https://github.com/dudgp128/nada-frontend/assets/59547170/3e8a123a-01f2-4cc5-b510-7883a4023ecb)
 ![8226e112fb3f440c](https://github.com/dudgp128/nada-frontend/assets/59547170/1452a5dd-9793-46ad-9679-b8b4ac2a7e42)
 ![image](https://github.com/dudgp128/nada-frontend/assets/59547170/4a2e351f-159d-4e95-8aad-173f48236199)
 ![슬라이드8](https://github.com/dudgp128/nada-frontend/assets/59547170/62c33935-5235-46fe-82ee-b185a37e53a7)
 ![슬라이드9](https://github.com/dudgp128/nada-frontend/assets/59547170/c9c241af-e21d-4f3d-848b-3b8ff8ca3499)
 ![슬라이드10](https://github.com/dudgp128/nada-frontend/assets/59547170/0f242413-cbbe-47a5-bb85-5eb99de055c3)
 ![슬라이드11](https://github.com/dudgp128/nada-frontend/assets/59547170/3601c9da-5357-4455-b8ed-cf1eba7c0af3)
-![슬라이드12](https://github.com/dudgp128/nada-frontend/assets/59547170/706a9c88-d71b-4cae-9cc3-7488dc928339)
+![최종0218 조영혜_포트폴리오](https://github.com/dudgp128/nada-frontend/assets/59547170/844a2985-8abf-4af5-9216-7f6a28088661)
 ![슬라이드13](https://github.com/dudgp128/nada-frontend/assets/59547170/25ffa19f-03c5-49e3-ae80-dd5e64d6d2ea)
 ![슬라이드14](https://github.com/dudgp128/nada-frontend/assets/59547170/fa250cb5-558a-41f0-90fe-e58449ebf62d)
