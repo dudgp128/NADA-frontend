@@ -38,7 +38,10 @@ const PostDetail = () => {
   }, [data]);
 
   return (
-    <>
+    <div
+      className="pageContainer"
+      style={{ backgroundColor: 'var(--myspec-gray-scalewhite)' }}
+    >
       {info && (
         <DetailPost>
           <div className="title">
@@ -59,7 +62,7 @@ const PostDetail = () => {
         </DetailPost>
       )}
       <BottomBar />
-    </>
+    </div>
   );
 };
 

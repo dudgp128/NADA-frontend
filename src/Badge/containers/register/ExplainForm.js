@@ -26,11 +26,12 @@ const ExplainForm = ({ onSubmit, order, dispatchField }) => {
             value={explain}
             maxLength={120}
             required
+            style={{ resize: 'none' }}
           />
         </InputBox>
       </form>
       <MarginBtn form={order} disabled={!(explain.length > 0)}>
-        <div>다음</div>
+        <div style={{ padding: '14px 0px' }}>다음</div>
       </MarginBtn>
     </>
   );

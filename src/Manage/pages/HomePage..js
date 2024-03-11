@@ -1,30 +1,64 @@
 /*ManageHome 관리자용 메인 페이지 */
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { changeBarStatus } from '../../Bar/modules/redux/bar';
 import { useDispatch } from 'react-redux';
+import styled from 'styled-components';
+import { applyFontStyles } from '../../styles/fontStyle';
+import { Img } from '../../Bar/styles/Header';
+import { changeBarStatus } from '../../Bar/modules/redux/bar';
+import { LinkButton } from '../components/LinkButton';
 
 const ManageHome = () => {
   const dispatch = useDispatch();
 
-  //해당 페이지의 상단, 하단 설정
   useEffect(() => {
     dispatch(
       changeBarStatus({
-        headerState: 'logo',
-        text: '관리자용',
+        headerState: '',
+        text: '',
         isShowBottom: false,
       }),
     );
   }, []);
 
   return (
-    <div>
-      <div>관리자 홈 화면 입니다.</div>
-      <Link to="/manage/Activity">등록되어있는 활동 게시판</Link>
-      <hr />
-    </div>
+    <LayoutStyle>
+      <Img className="Logo" />
+      <List>
+        <div className="title">관리자님 안녕하세요!</div>
+        <LinkButton url={'/manage/activity'} text={'활동 게시글 관리하기'} />
+        <LinkButton
+          url={'/manage/community'}
+          text={'커뮤니티 게시글 관리하기'}
+        />
+        <LinkButton url={'/manage/notice'} text={'공지사항 게시글 관리하기'} />
+      </List>
+    </LayoutStyle>
   );
 };
 
 export default ManageHome;
+
+export const LayoutStyle = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  gap: 8px;
+`;
+
+export const List = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  height: 500px;
+  top: 80px;
+
+  & > .title {
+    padding: 12px 15px;
+    ${applyFontStyles({
+      font: 'title-01',
+      color: 'var(--myspec-gray-scalegray-900)',
+    })};
+  }
+}
+`;

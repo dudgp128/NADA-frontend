@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { changeBarStatus } from '../../Bar/modules/redux/bar';
 import { useDispatch, useSelector } from 'react-redux';
 import RecentActivityItem from '../components/RecentActivityItem';
-import Filter from '../../components/common/filter/Filter';
+import Filter from '../../components/filter/Filter';
 import { AlignBox } from '../../Badge/components/AlignBox';
 import { useNavigate } from 'react-router-dom';
 import { initialized } from '../../Search/modules/redux/search';
@@ -12,6 +12,7 @@ import { useActivityList } from '../modules/queries/useGetActivity';
 import '../../styles/PageCommon.scss';
 import AcitivityList from '../container/AcitivityList';
 import { GoToWriteButton } from '../../containers/common/GoToWriteButton';
+import { changeField } from '../../Search/modules/redux/search';
 
 const ActivityPage = () => {
   const dispatch = useDispatch();
@@ -39,6 +40,12 @@ const ActivityPage = () => {
         isShowBottom: true,
       }),
     );
+    dispatch(
+      changeField({
+        key: 'position',
+        value: 'community',
+      }),
+    );
   }, []);
 
   // 검색 redux 초기화하기
@@ -49,13 +56,15 @@ const ActivityPage = () => {
   const navigate = useNavigate();
   const onSubmit = (e) => {
     e.preventDefault();
-    navigate('/activity/search');
+    navigate('/search');
   };
 
   return (
     <>
       <div className="pageContainer">
-        <SearchInput onSubmit={onSubmit} />
+        <div style={{ backgroundColor: 'var(--myspec-gray-scalewhite)' }}>
+          <SearchInput onSubmit={onSubmit} />
+        </div>
         {recent && (
           <CardList title={'최근 본 활동'} title_font={'subtitle-01'}>
             <RecentActivityItem cards={recent.reverse()} />

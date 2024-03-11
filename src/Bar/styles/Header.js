@@ -5,9 +5,13 @@ import { applyFontStyles } from '../../styles/fontStyle';
 
 export const Top = styled.div`
   height: 88px;
-  position: relative;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
   width: 375px;
   margin: 0 auto;
+  background-color: white;
 `;
 
 //커뮤니티의 '게시'버튼 추가 설정
@@ -37,7 +41,7 @@ export const Overlap = styled.div`
 export const Img = styled.div`
   height: 20px;
   left: 0;
-  position: absolute;
+  position: relative;
   top: 2px;
   width: 18px;
   background-size: 100%;

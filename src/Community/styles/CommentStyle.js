@@ -97,6 +97,7 @@ export const CommentList = styled.div`
   flex-direction: column;
   position: relative;
   text-align: left;
+  padding-top: 85px;
   padding-bottom: 85px;
 `;
 

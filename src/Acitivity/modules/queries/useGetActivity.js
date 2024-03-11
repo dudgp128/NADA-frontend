@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import client from '../../../lib/api/client';
-import { calculateDday } from '../calculateDday';
+import { calculateDday } from '../../../modules/common/formatDate';
 import { useSelector } from 'react-redux';
 import { decodeJwtToken } from '../../../Auth/modules/decodeJwtToken';
 
@@ -34,17 +34,18 @@ export const useActivityList = () => {
       const { data } = await client.get('/activity/list', {
         params,
       });
-      console.log(data);
       return data;
     },
+
     staleTime: 90000,
     select: (data) =>
       (data.activities || []).map(
-        ({ _id, activityName, endedAt, mainImageUrl }) => ({
+        ({ _id, activityName, endedAt, mainImageUrl, reports }) => ({
           _id: _id,
           activityName: activityName,
           Dday: calculateDday(endedAt),
           mainImageUrl,
+          reports,
         }),
       ),
     onError: (error) => {
@@ -73,10 +74,10 @@ export const useRecommendActivities = () => {
     select: (data) =>
       (data.recommendActivity || []).map(
         ({ _id, activityName, endedAt, mainImageUrl }) => ({
-          _id: _id,
-          activityName: activityName,
+          _id,
+          activityName,
           Dday: calculateDday(endedAt),
-          imageUrl: mainImageUrl,
+          mainImageUrl,
         }),
       ),
   });

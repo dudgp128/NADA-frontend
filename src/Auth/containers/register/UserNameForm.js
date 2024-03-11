@@ -9,7 +9,7 @@ import Title from '../../components/Title';
 import Caution from '../../components/Caution';
 import useDebounce from '../../modules/useDebounce';
 
-const UserNamePage = ({ dispatchField, onSubmit, order, type }) => {
+const UserNameForm = ({ dispatchField, onSubmit, order, type }) => {
   const [error, setError] = useState(null); // error 메세지 관리
   const [check, setCheck] = useState([
     { id: 'userName_length', text: '1-8자', checked: false },
@@ -88,4 +88,4 @@ const UserNamePage = ({ dispatchField, onSubmit, order, type }) => {
   );
 };
 
-export default UserNamePage;
+export default UserNameForm;

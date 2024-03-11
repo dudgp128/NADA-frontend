@@ -18,7 +18,6 @@ const Home = () => {
 
   // 활동글 불러오기
   const { data: activityData } = useRecommendActivities();
-  console.log(activityData);
 
   // 인기글 불러오기
   const { data: postData } = useGetTopPost();

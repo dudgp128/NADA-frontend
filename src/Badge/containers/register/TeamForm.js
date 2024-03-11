@@ -3,15 +3,11 @@ import { Explain, TitleBox } from '../../../styles/Survey';
 import { AddOperator } from '../../../icon/AddOperator';
 import styled from 'styled-components';
 import { applyFontStyles } from '../../../styles/fontStyle';
-import { ButtonContainer } from './ActivityForm';
-import {
-  Cancel,
-  Act,
-} from '../../../Modal/components/usedInModal/BottomButton';
 import { useDispatch, useSelector } from 'react-redux';
 import { addList, changeTeam, deleteList } from '../../modules/redux/badge';
 import InputBoxWithX from '../../components/InputBoxWithX';
 import { useState, useEffect } from 'react';
+import BottomButton from '../../components/BottomButton';
 
 const ButtonWrapper = styled.div`
   display: flex;
@@ -64,7 +60,6 @@ const TeamForm = ({ onSubmit, order, dispatchField }) => {
           팀이 없다면 건너뛰기를 눌러주세요
         </Explain>
       </TitleBox>
-
       <div
         style={{
           overflowY: 'scroll',
@@ -90,17 +85,13 @@ const TeamForm = ({ onSubmit, order, dispatchField }) => {
           />
         ))}
       </div>
-
-      <ButtonContainer>
-        <Cancel onClick={onSubmit}>
-          <div className="text">건너뛰기</div>
-        </Cancel>
-        <Act onClick={onSubmit} form={order} className={disabled && 'disabled'}>
-          <div className="text" style={{ color: 'white' }}>
-            다음
-          </div>
-        </Act>
-      </ButtonContainer>
+      <BottomButton
+        grayAct={(e) => onSubmit(e)}
+        grayText={'건너뛰기'}
+        actText={'다음'}
+        act={(e) => onSubmit(e)}
+        isDisabled={disabled}
+      />
     </>
   );
 };

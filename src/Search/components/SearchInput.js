@@ -1,24 +1,24 @@
+/** SearchInput 검색어 입력 창 */
 import { applyFontStyles } from '../../styles/fontStyle';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeField, searchSelector } from '../modules/redux/search';
 import { SearchGlass } from '../../icon/SearchGlass';
+import { MainCategoryButton } from './MainCategoryButton';
 
 const Form = styled.form`
   display: flex;
   box-sizing: border-box;
-  width: 100%;
+  flex: 1 0 auto;
   padding: 8px 12px;
   align-items: flex-start;
   justify-content: space-between;
   flex-shrink: 0;
-  border-radius: 10px;
-  background: var(--myspec-gray-scalegray-100);
 
   & > .Input {
     ${applyFontStyles({
       font: 'subtitle-02',
-      color: 'var(--myspec-gray-scalegray-600)',
+      color: 'var(--myspec-gray-scalegray-900)',
     })}
     background: var(--myspec-gray-scalegray-100);
     border: none;
@@ -27,7 +27,6 @@ const Form = styled.form`
     &:focus {
       outline: none;
     }
-
     &:focus::placeholder {
       color: transparent;
     }
@@ -44,15 +43,18 @@ const Form = styled.form`
   }
 `;
 
-export const SearchInput = ({ onSubmit }) => {
+export const SearchInput = ({ onSubmit, isMaincategory }) => {
   const InputWrapper = {
-    width: '100%',
+    width: '345px',
+    height: '40px',
     display: 'flex',
     boxSizing: 'border-box',
-    padding: '12px 15px',
+    margin: '12px 15px',
     justifyContent: 'center',
     alignItems: 'center',
     flexShrink: 0,
+    borderRadius: '10px',
+    backgroundColor: 'var(--myspec-gray-scalegray-100)',
   };
 
   const dispatch = useDispatch();
@@ -67,6 +69,7 @@ export const SearchInput = ({ onSubmit }) => {
 
   return (
     <div style={InputWrapper}>
+      {isMaincategory && <MainCategoryButton />}
       <Form onSubmit={onSubmit} id={'search'}>
         <input
           className="Input"

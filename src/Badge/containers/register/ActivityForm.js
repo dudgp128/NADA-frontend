@@ -1,31 +1,12 @@
 // 활동 이력을 입력받는 컨테이너
 import { TitleBox } from '../../../styles/Survey';
 import ActivityInputItem from '../../components/ActivityInputItem';
-import {
-  ButtonList,
-  Cancel,
-  Act,
-} from '../../../Modal/components/usedInModal/BottomButton';
-import styled from 'styled-components';
-import { applyFontStyles } from '../../../styles/fontStyle';
 import { useDispatch, useSelector } from 'react-redux';
 import { addList } from '../../modules/redux/badge';
 import { useState, useEffect } from 'react';
+import BottomButton from '../../components/BottomButton';
 
-export const ButtonContainer = styled(ButtonList)`
-  width: 100%;
-  align-items: end;
-  bottom: 50px;
-
-  & > div {
-    height: fit-content;
-    & > .text {
-      ${applyFontStyles({ font: 'title-01' })}
-    }
-  }
-`;
-
-const ActivityForm = ({ onSubmit, order, dispatchField }) => {
+const ActivityForm = ({ onSubmit, order }) => {
   const [disabled, setDisabeld] = useState(false);
   const activities = useSelector(({ badge }) => badge.activities);
   const dispatch = useDispatch();
@@ -34,23 +15,25 @@ const ActivityForm = ({ onSubmit, order, dispatchField }) => {
     dispatch(
       addList({
         type: 'activities',
-        value: { content: '', started: '', end: '' },
+        value: { content: '', started: '', ended: '' },
       }),
     );
   };
 
   // activities 속성 중에 하나라도 빈 값이 있으면, disabled=true
-  /*const hasEmptyValue = (arr) => {
-    return arr.some((obj) => Object.values(obj).some((value) => value === ''));
+  const hasEmptyValue = () => {
+    return activities.some((obj) =>
+      Object.values(obj).some((value) => value === ''),
+    );
   };
 
   useEffect(() => {
-    if (hasEmptyValue) {
+    if (hasEmptyValue()) {
       setDisabeld(true);
     } else {
       setDisabeld(false);
     }
-  }, [activities]);*/
+  }, [activities]);
 
   return (
     <>
@@ -65,16 +48,14 @@ const ActivityForm = ({ onSubmit, order, dispatchField }) => {
           ))}
         </div>
       </div>
-      <ButtonContainer>
-        <Cancel onClick={() => onClick()}>
-          <div className="text">내역 추가하기</div>
-        </Cancel>
-        <Act onClick={onSubmit} className={disabled && 'disabled'}>
-          <div className="text" style={{ color: 'white' }}>
-            다음
-          </div>
-        </Act>
-      </ButtonContainer>
+
+      <BottomButton
+        grayAct={() => onClick()}
+        grayText={'내역 추가하기'}
+        actText={'다음'}
+        act={(e) => onSubmit(e)}
+        isDisabled={disabled}
+      />
     </>
   );
 };

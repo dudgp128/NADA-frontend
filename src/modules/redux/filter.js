@@ -31,7 +31,7 @@ const filterSlice = createSlice({
       const temp = state[form][key].filter((element) => element !== value);
       state[form][key] = temp;
     },
-    initializeAll: (state) => {
+    initializeAll: () => {
       return initialState;
     },
     initializeSub: (state) => {

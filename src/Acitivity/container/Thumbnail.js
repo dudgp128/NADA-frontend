@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Star } from '../../icon/Star';
 import { caption_01, title_01 } from '../../styles/fontStyle';
 import HashTag from '../../components/common/HashTag';
-import { calculateDday } from '../modules/calculateDday';
+import { calculateDday } from '../../modules/common/formatDate';
 import imgNull from '../../icon/GrayLogo.png';
 
 const ThumbContainer = styled.div`

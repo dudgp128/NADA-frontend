@@ -34,8 +34,8 @@ export const modalSlice = createSlice({
 export const modalSelector = (state) => state.modal;
 export const { openModal, closeModal } = modalSlice.actions;
 
-const ModalPropsSelects = () => (rootState) => {
-  return rootState.modal.props || initialState.props;
+const ModalPropsSelects = (field) => (rootState) => {
+  return rootState.modal[field] || initialState[field];
 };
 
 export const ModalPropsSelector = createSelector(

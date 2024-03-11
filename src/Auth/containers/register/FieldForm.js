@@ -3,7 +3,7 @@ import { authSelector } from '../../modules/redux/auth';
 import { TitleBox, Explain, LoginBtn } from '../../../styles/Survey';
 import { useState } from 'react';
 import { fieldData } from '../../../modules/common/AttributeData';
-import { Item } from '../../../components/common/filter/FilterItems';
+import { Item } from '../../../components/filter/FilterItems';
 import { AttributeInfoButton } from '../../../components/common/AttributeInfoButton';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';

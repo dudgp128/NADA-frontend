@@ -7,7 +7,7 @@ import { changePostDataField } from '../../modules/redux/postData.js';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { useActivity } from '../modules/queries/useGetActivity.js';
-import { calculateDday } from '../modules/calculateDday.js';
+import { calculateDday } from '../../modules/common/formatDate.js';
 import { applyFontStyles } from '../../styles/fontStyle.js';
 import { Image } from '../container/Image.js';
 
@@ -19,6 +19,7 @@ const DetailContainer = styled.div`
   gap: 12px;
   width: 375px;
   margin: 0px auto;
+  padding-top: 88px;
   padding-bottom: 88px;
   text-align: left;
   ${applyFontStyles({ font: 'body-01' })};
