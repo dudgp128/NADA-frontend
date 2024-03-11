@@ -2,7 +2,7 @@
 ![슬라이드7](https://github.com/dudgp128/nada-frontend/assets/59547170/30d44f27-af7b-4dc0-970a-95a741860250)
 ![슬라이드8](https://github.com/dudgp128/nada-frontend/assets/59547170/0926c3e6-1d1c-4e63-bd7d-051a64f0f0d7)
 ![슬라이드8](https://github.com/dudgp128/nada-frontend/assets/59547170/5c4bf651-8373-410d-9734-1fa999265f86)
-![슬라이드9](https://github.com/dudgp128/nada-frontend/assets/59547170/80574105-d52f-428d-8648-d1049be5033d)
+![최종 조영혜_포트폴리오 (1)](https://github.com/dudgp128/nada-frontend/assets/59547170/7347cf25-34f9-4e30-a3c0-05c46ccd429a)
 ![슬라이드10](https://github.com/dudgp128/nada-frontend/assets/59547170/c5f03a77-62d7-4cac-8dae-d59b6398cdb1)
 ![슬라이드11](https://github.com/dudgp128/nada-frontend/assets/59547170/463e36c5-ef1a-4efa-a0f1-b26423877d08)
 ![슬라이드12](https://github.com/dudgp128/nada-frontend/assets/59547170/c68e7235-6c7f-4e99-a2f3-eb16828bc303)
