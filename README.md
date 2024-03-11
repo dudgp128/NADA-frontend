@@ -1,4 +1,4 @@
-![슬라이드6](https://github.com/dudgp128/nada-frontend/assets/59547170/74c41d47-8aa0-48e9-b0ef-d7ad6f08f6c2)
+![3차수정 조영혜_포트폴리오](https://github.com/dudgp128/nada-frontend/assets/59547170/49a1177c-ff73-46c1-9ef2-7fccc08dd94e)
 ![슬라이드7](https://github.com/dudgp128/nada-frontend/assets/59547170/30d44f27-af7b-4dc0-970a-95a741860250)
 ![슬라이드8](https://github.com/dudgp128/nada-frontend/assets/59547170/0926c3e6-1d1c-4e63-bd7d-051a64f0f0d7)
 ![슬라이드9](https://github.com/dudgp128/nada-frontend/assets/59547170/b64d9fb7-f37c-4e31-a9b5-d63cc7b0c431)
